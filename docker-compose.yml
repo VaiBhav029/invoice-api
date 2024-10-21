@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  springboot-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: invoice-api
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      SPRING_PROFILES_ACTIVE: "docker"
+    restart: unless-stopped
